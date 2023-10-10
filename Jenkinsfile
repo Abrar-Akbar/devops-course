@@ -11,10 +11,13 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 script {
+                    // Rsync to production server
                     sh "rsync -avz --delete ./ www@41.215.243.101:/home/www/webroot/"
-#                    sh "ssh user@41.215.243.101 'cd /home/www/webroot/ && npm install'"
-#                    sh "ssh user@41.215.243.101 'cd /home/www/webroot/ && npm run build'"
-#                    sh "ssh user@41.215.243.101 'cd /home/www/webroot/ && pm2 restart'"
+
+                    // SSH into production server and execute commands
+                    sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm install'"
+                    sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm run build'"
+                    sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && pm2 restart'"
                 }
             }
         }
