@@ -15,9 +15,9 @@ pipeline {
                     sh "rsync -avz --delete ./ www@41.215.243.101:/home/www/webroot/"
 
                     // SSH into production server and execute commands
-                    sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm install'"
-                    sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm run build'"
-                    sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && pm2 restart'"
+                    // sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm install'"
+                    // sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm run build'"
+                    //sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && pm2 restart'"
                 }
             }
         }
