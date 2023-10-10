@@ -12,8 +12,7 @@ pipeline {
             steps {
                 script {
                     // Rsync to production server
-                    sh "rsync -avz --delete ./ www@41.215.243.101:/home/www/webroot/"
-
+                    sh "rsync -avz --delete ./ www@41.215.243.101:/home/www/webroot/devops-course/"
                     // SSH into production server and execute commands
                     // sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm install'"
                     // sh "ssh www@41.215.243.101 'cd /home/www/webroot/ && npm run build'"
